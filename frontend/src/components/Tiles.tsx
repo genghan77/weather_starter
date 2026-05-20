@@ -189,6 +189,21 @@ export function UVTile({ weather }: WeatherProps) {
   );
 }
 
+export function ConditionTile({ weather }: WeatherProps) {
+  const condition = weather?.condition ?? 'Unavailable';
+  const area = weather?.area ?? 'Nearest location';
+  const observed = weather?.observed_at ? new Date(weather.observed_at).toLocaleString() : null;
+
+  return (
+    <TileShell icon={<CloudIcon className="h-3.5 w-3.5" />} title="Condition" className="col-span-2">
+      <div className="text-3xl font-light leading-none text-white/95">{condition}</div>
+      <div className="mt-1 text-sm text-white/85">{area}</div>
+      {observed && <div className="mt-2 text-xs text-white/70">Updated {observed}</div>}
+      <p className="mt-3 text-xs leading-snug text-white/70">Source: {weather?.source ?? 'unknown'}</p>
+    </TileShell>
+  );
+}
+
 export function TemperatureTile({ weather }: WeatherProps) {
   return (
     <TileShell icon={<ThermometerIcon />} title="Temperature">
@@ -247,6 +262,7 @@ export function AveragesTile({ weather }: WeatherProps) {
 export function TileGrid({ weather }: WeatherProps) {
   return (
     <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+      <ConditionTile weather={weather} />
       <AirQualityTile weather={weather} />
       <WindTile weather={weather} />
       <UVTile weather={weather} />

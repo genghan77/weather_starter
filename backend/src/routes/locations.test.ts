@@ -48,7 +48,11 @@ describe('locations API', () => {
   });
 
   afterAll(async () => {
-    await rm(tempDir, { recursive: true, force: true });
+    try {
+      await rm(tempDir, { recursive: true, force: true });
+    } catch {
+      // Ignore cleanup errors on Windows when the database file is still locked.
+    }
   });
 
   it('refreshes weather when a location is created', async () => {
@@ -71,5 +75,19 @@ describe('locations API', () => {
     const listResponse = await request(app).get('/api/locations').expect(200);
     expect(listResponse.body.locations).toHaveLength(1);
     expect(listResponse.body.locations[0].weather.condition).toBe('Cloudy');
+  });
+
+  it('deletes a location by id', async () => {
+    const createResponse = await request(app)
+      .post('/api/locations')
+      .send({ latitude: 1.4, longitude: 103.9 })
+      .expect(201);
+
+    await request(app).delete(`/api/locations/${createResponse.body.id}`).expect(204);
+
+    const listResponse = await request(app).get('/api/locations').expect(200);
+    expect(listResponse.body.locations.map((location: { id: number }) => location.id)).not.toContain(
+      createResponse.body.id,
+    );
   });
 });
