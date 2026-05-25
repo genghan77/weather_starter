@@ -21,7 +21,8 @@ export function MapCard() {
 
   const center = useMemo<[number, number]>(() => {
     if (selected) return [selected.latitude, selected.longitude];
-    if (locations.length > 0) return [locations[0].latitude, locations[0].longitude];
+    if (locations.length > 0)
+      return [locations[0].latitude, locations[0].longitude];
     return [DEFAULT_CENTER[0], DEFAULT_CENTER[1]];
   }, [locations, selected]);
 
@@ -56,7 +57,8 @@ export function MapCard() {
                 {`${location.weather.condition.split(' ')[0]} · ${
                   location.weather.temperature_c != null
                     ? `${Math.round(location.weather.temperature_c)}°`
-                    : '—'}
+                    : '—'
+                }
                 `}
               </span>
             ) : (
@@ -96,7 +98,10 @@ export function MapCard() {
       {isFullscreen && (
         <div className="fixed inset-0 z-50 flex flex-col bg-slate-950/95 p-4 backdrop-blur-xl">
           <div className="mb-3 flex items-center justify-between rounded-3xl border border-white/10 bg-slate-950/95 px-4 py-3 text-sm text-white/90">
-            <span>{locations.length} saved location{locations.length === 1 ? '' : 's'}</span>
+            <span>
+              {locations.length} saved location
+              {locations.length === 1 ? '' : 's'}
+            </span>
             <button
               type="button"
               onClick={() => setIsFullscreen(false)}

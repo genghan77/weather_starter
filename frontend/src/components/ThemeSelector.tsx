@@ -25,7 +25,9 @@ export function ThemeSelector() {
     document.documentElement.setAttribute('data-theme', theme);
     try {
       localStorage.setItem(STORAGE_KEY, theme);
-    } catch {}
+    } catch {
+      // Ignore storage failures in private browsing or restricted environments.
+    }
   }, [theme]);
 
   return (

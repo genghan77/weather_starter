@@ -11,8 +11,16 @@ body,
 body {
   @apply text-white antialiased;
   background:
-    radial-gradient(120% 80% at 70% 0%, rgba(255, 255, 255, 0.18) 0%, transparent 55%),
-    radial-gradient(90% 70% at 10% 100%, rgba(80, 110, 150, 0.55) 0%, transparent 60%),
+    radial-gradient(
+      120% 80% at 70% 0%,
+      rgba(255, 255, 255, 0.18) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      90% 70% at 10% 100%,
+      rgba(80, 110, 150, 0.55) 0%,
+      transparent 60%
+    ),
     linear-gradient(170deg, #6f8aa8 0%, #5a7591 35%, #4a627c 65%, #3c5066 100%);
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -29,36 +37,50 @@ body {
   --cs-muted: rgba(255, 255, 255, 0.65);
 }
 
-[data-theme="classic-blue"] body {
+[data-theme='classic-blue'] body {
   background:
-    radial-gradient(120% 80% at 70% 0%, rgba(255, 255, 255, 0.12) 0%, transparent 55%),
-    radial-gradient(90% 70% at 10% 100%, rgba(80, 110, 150, 0.45) 0%, transparent 60%),
-    linear-gradient(170deg, var(--cs-bg-top) 0%, var(--cs-bg-mid) 35%, #4a627c 65%, var(--cs-bg-bot) 100%);
+    radial-gradient(
+      120% 80% at 70% 0%,
+      rgba(255, 255, 255, 0.12) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      90% 70% at 10% 100%,
+      rgba(80, 110, 150, 0.45) 0%,
+      transparent 60%
+    ),
+    linear-gradient(
+      170deg,
+      var(--cs-bg-top) 0%,
+      var(--cs-bg-mid) 35%,
+      #4a627c 65%,
+      var(--cs-bg-bot) 100%
+    );
 }
 
-[data-theme="classic-blue"] .rounded-2xl {
+[data-theme='classic-blue'] .rounded-2xl {
   background-color: var(--cs-card-bg) !important;
   border-color: var(--cs-card-border) !important;
 }
 
-[data-theme="classic-blue"] .shadow-xl {
+[data-theme='classic-blue'] .shadow-xl {
   box-shadow: 0 6px 20px rgba(10, 25, 40, 0.45) !important;
 }
 
-[data-theme="classic-blue"] .text-white {
+[data-theme='classic-blue'] .text-white {
   color: var(--cs-muted) !important;
 }
 
-[data-theme="classic-blue"] .bg-white {
+[data-theme='classic-blue'] .bg-white {
   background-color: rgba(255, 255, 255, 0.08) !important;
 }
 
-[data-theme="classic-blue"] .accent {
+[data-theme='classic-blue'] .accent {
   color: var(--cs-accent) !important;
 }
 
 /* Midnight theme (dark, cinematic) */
-:root[data-theme="midnight"] {
+:root[data-theme='midnight'] {
   --md-bg-top: #0b1220;
   --md-bg-mid: #0f1724;
   --md-bg-bot: #071021;
@@ -68,31 +90,45 @@ body {
   --md-muted: rgba(255, 255, 255, 0.8);
 }
 
-[data-theme="midnight"] body {
+[data-theme='midnight'] body {
   background:
-    radial-gradient(120% 80% at 70% 0%, rgba(255, 255, 255, 0.04) 0%, transparent 55%),
-    radial-gradient(90% 70% at 10% 100%, rgba(30, 40, 80, 0.35) 0%, transparent 60%),
-    linear-gradient(170deg, var(--md-bg-top) 0%, var(--md-bg-mid) 35%, var(--md-bg-mid) 65%, var(--md-bg-bot) 100%);
+    radial-gradient(
+      120% 80% at 70% 0%,
+      rgba(255, 255, 255, 0.04) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      90% 70% at 10% 100%,
+      rgba(30, 40, 80, 0.35) 0%,
+      transparent 60%
+    ),
+    linear-gradient(
+      170deg,
+      var(--md-bg-top) 0%,
+      var(--md-bg-mid) 35%,
+      var(--md-bg-mid) 65%,
+      var(--md-bg-bot) 100%
+    );
 }
 
-[data-theme="midnight"] .rounded-2xl {
+[data-theme='midnight'] .rounded-2xl {
   background-color: var(--md-card-bg) !important;
   border-color: var(--md-card-border) !important;
 }
 
-[data-theme="midnight"] .shadow-xl {
+[data-theme='midnight'] .shadow-xl {
   box-shadow: 0 8px 30px rgba(2, 6, 20, 0.6) !important;
 }
 
-[data-theme="midnight"] .text-white {
+[data-theme='midnight'] .text-white {
   color: var(--md-muted) !important;
 }
 
-[data-theme="midnight"] .bg-white {
-  background-color: rgba(255,255,255,0.03) !important;
+[data-theme='midnight'] .bg-white {
+  background-color: rgba(255, 255, 255, 0.03) !important;
 }
 
-[data-theme="midnight"] .accent {
+[data-theme='midnight'] .accent {
   color: var(--md-accent) !important;
 }
 
